@@ -1,0 +1,51 @@
+name: Deploy to GitHub Pages
+
+on:
+  # 當推送到預設分支（main）時執行
+  push:
+    branches: [main]
+
+  # 允許從 GitHub Actions 介面手動觸發此工作流程
+  workflow_dispatch:
+
+# 設定 GITHUB_TOKEN 權限，以允許部署到 GitHub Pages
+permissions:
+  contents: read   # 允許讀取儲存庫內容
+  pages: write     # 允許寫入 Pages 部署
+  id-token: write  # 允許使用 OpenID Connect 進行身分驗證
+
+# 僅允許同時間執行一個部署工作。
+# 若在執行期間有新的部署排入，只會保留最新的那次，其他跳過。
+# 但「不會」中斷目前進行中的部署，讓其完成。
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # 🔧 建置（Build）階段
+  build:
+    runs-on: ubuntu-latest  # 使用最新版 Ubuntu 環境執行
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4  # 下載目前儲存庫的原始碼
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4  # 設定 GitHub Pages 相關環境
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3  # 上傳要部署的檔案（打包成 artifact）
+        with:
+          # 上傳整個專案資料夾
+          path: '.'
+
+  # 🚀 部署（Deploy）階段
+  deploy:
+    environment:
+      name: github-pages  # 設定部署目標環境名稱
+      url: ${{ steps.deployment.outputs.page_url }}  # 取得部署後的網站 URL
+    runs-on: ubuntu-latest  # 使用最新版 Ubuntu 環境執行
+    needs: build  # 此階段需等 build 階段完成後才執行
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4  # 將剛剛上傳的 artifact 部署到 GitHub Pages
