@@ -2,6 +2,10 @@
 
 這是一個結合經典撲克牌遊戲 **21 點 (Blackjack)** 與趣味**點擊打 Boss** 小遊戲的**電腦尺寸**網頁遊戲。在忙碌的辦公室場景中，挑戰你的運氣和反應力，為社畜的職場生存而戰！
 
+## 預覽／示範
+
+[Office-Blackjack 畫面預覽展示](https://ho-67.github.io/Office-Blackjack/)
+
 ## 專案介紹 (Project Overview)
 
 本專案是一個單頁式的互動遊戲網站，主要包含兩個核心部分：
