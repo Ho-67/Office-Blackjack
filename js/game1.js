@@ -1,6 +1,6 @@
-const backImg = "../images/cards/Yellow_back.jpg";
+const backImg = "./images/cards/Yellow_back.jpg";
 function cardImg(card) {
-  return `../images/cards/${card}.jpg`;
+  return `./images/cards/${card}.jpg`;
 }
 
 // 建立一副牌
