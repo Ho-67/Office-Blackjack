@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>21點遊戲</title>
+  <link rel="stylesheet" href="./css/game1.css">
+</head>
+
+<body>
+  <div class="container">
+    <h2 style="font-size: 24px; margin-bottom: 10px">BLACKJACK</h2>
+    <div class="hands">
+      <div><b>玩家</b></div>
+      <div id="player-hand" class="hand"></div>
+    </div>
+    <br />
+    <div class="hands">
+      <div><b>莊家</b></div>
+      <div id="dealer-hand" class="hand"></div>
+    </div>
+
+    <div id="scores">
+      玩家點數: <span id="player-score">0</span> 　|　莊家點數:
+      <span id="dealer-score">?</span>
+    </div>
+
+    <div id="controls">
+      <button id="btn-hit">要牌</button>
+      <button id="btn-stand">不要</button>
+      <button id="btn-new" disabled>重新開始</button>
+    </div>
+
+    <div id="status"></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous"></script>
+  <script src="./js/game1.js"></script>
+</body>
+
+</html>

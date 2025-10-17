@@ -1,0 +1,251 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kaisei Tokumin", serif;
+}
+
+.title {
+  text-align: center;
+  background: #c6b475;
+  display: block;
+  padding: 0.8rem;
+  line-height: 1.5;
+}
+
+.title h1 {
+  font-size: 40px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3840 / 2160;
+  background: url("../images/office-01.png") no-repeat center center;
+  background-size: contain;
+}
+
+.screen {
+  position: absolute;
+  left: 12.865%;
+  top: 25%;
+  width: 39.3%;
+  height: 40%;
+}
+
+.clock {
+  position: absolute;
+  left: 27.9%;
+  top: 3.15%;
+  width: 9%;
+  height: 15.9%;
+}
+
+.screen iframe,
+.clock iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  /* background: red; */
+  /* opacity: 0.3; */
+}
+
+.text {
+  position: absolute;
+  left: 59%;
+  top: 10%;
+  width: 16%;
+  height: 29%;
+}
+
+.speech-bubble {
+  position: relative;
+  width: 95%;
+  height: 75%;
+  border: 4px solid #580b0b;
+  border-radius: 1rem;
+  color: #090f2b;
+  background: #9fb4c6;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* 尾巴（小三角形） */
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  /* 往下突出 */
+  bottom: -10px;
+  /* 往右邊貼近 */
+  right: -15px;
+  transform: rotate(315deg);
+  width: 0;
+  height: 0;
+  border-width: 10px 10px 0 10px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+.annotation {
+  padding: 5px 10px;
+  font-weight: 600;
+  color: #580b0b;
+  display: none;
+}
+
+/* 計時文字閃爍動畫 */
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* 遊戲進行中時套用閃爍動畫 */
+.blinking {
+  animation: blink 1s linear infinite;
+}
+
+.boss-face {
+  position: absolute;
+  left: 76.5%;
+  top: 7%;
+  width: 17.5%;
+  height: 46%;
+  clip-path: polygon(
+    0% 100%,
+    0% 79%,
+    12% 76%,
+    16% 65%,
+    17% 60%,
+    14% 50%,
+    13% 30%,
+    16% 16%,
+    20% 9%,
+    36% 0%,
+    100% 0%,
+    100% 100%
+  );
+  /* background: #00000080; */
+  cursor: default;
+}
+
+#boss-face {
+  position: relative;
+  /* 為了讓血跡 div 絕對定位在內部 */
+  overflow: hidden;
+}
+
+.blood {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  /* 不擋住滑鼠事件 */
+}
+
+#game2 {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3840 / 2160;
+  background: url("../images/mixkit-person-overwhelmed-by-a-mountain-of-paperwork-70-desktop-wallpaper.png")
+    no-repeat center center;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weapon {
+  position: absolute;
+  top: 10%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  transform: scale(0.8);
+  text-align: center;
+  background: #00000020;
+  transition: background 0.3s;
+  border-radius: 50%;
+}
+
+.weapon:hover {
+  background: #ffffff20;
+  cursor: pointer;
+}
+
+.weapon.active {
+  background: #ffffff30;
+}
+
+.weapon img {
+  display: block;
+  filter: brightness(0) saturate(100%) invert(40%) sepia(90%) saturate(200%)
+    hue-rotate(310deg);
+}
+
+.score {
+  position: relative;
+  top: 100px;
+  width: 45%;
+  height: 45%;
+  background: #ffffff50;
+  backdrop-filter: blur(3px);
+  border-radius: 30px;
+  text-align: center;
+  line-height: 2rem;
+  padding: 1rem;
+}
+
+.boss {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.boss a {
+  display: block;
+  background: #090f2b;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+  width: 80px;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+#btn-start {
+  background: gray;
+  cursor: not-allowed;
+  transition: background 0.3s;
+}
+
+#btn-start.enabled {
+  background: crimson;
+  cursor: pointer;
+}
+
+#footer {
+  text-align: center;
+  height: 40px;
+  background: #080b17;
+  color: #fff;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+}

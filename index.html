@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>職場21點</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+Tokumin&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/index.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPRP34CTHT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-BPRP34CTHT');
+  </script>
+</head>
+
+<body>
+  <div class="title">
+    <h1>職場21點！社畜的生存遊戲</h1>
+  </div>
+  <div class="container">
+    <div class="screen">
+      <iframe src="./game1.html" frameborder="0"></iframe>
+    </div>
+    <div class="clock">
+      <iframe src="./clock.html" frameborder="0"></iframe>
+    </div>
+    <div class="text">
+      <div class="speech-bubble">
+        工作是修行， <br />
+        不要太計較回報。 <br />
+        <br />
+        只要你願意，<br />
+        凌晨三點也能開會。
+      </div>
+      <div class="annotation">
+        倒計時：<span id="text-time">10</span>秒
+      </div>
+    </div>
+    <div id="boss-face" class="boss-face"></div>
+  </div>
+  <div id="game2">
+    <div class="weapon">
+      <img src="./images/speech_17.png" alt="對話框" />
+    </div>
+    <div class="score">
+      遊戲說明: <br />
+      先拿反PUA武器後再按下面的打BOSS，期間內點擊畫面中說話者計分<br />
+      遊戲期間內話框會閃爍，當話框停止閃爍即遊戲停止<br />
+      <br />
+      本次怨氣指數：<span id="text-score">0</span> <br />
+      社畜排行第一：<span id="text-highscore-name">none</span> <br />
+      最高怨氣指數：<span id="text-highscore-score">0</span> <br />
+    </div>
+    <div class="boss">
+      <a href="#boss-face" id="btn-start">打BOSS</a>
+    </div>
+  </div>
+  <div id="footer">&copy; 2025 by <a href="https://HO-67.github.io">HO-67</a></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="./js/index.js"></script>
+
+</body>
+
+</html>
